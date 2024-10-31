@@ -27,7 +27,10 @@ function handleSymbol(symbol) {
       }
       flushOperation(parseInt(buffer));
       prevOperator = null;
-      buffer = runningTotal;
+      buffer = runningTotal.toString();
+      if (buffer.includes(".")) {
+        buffer = parseFloat(buffer).toFixed(2);
+      }
       runningTotal = 0;
       break;
 
